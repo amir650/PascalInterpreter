@@ -8,4 +8,11 @@ public class Message {
         this.body = body;
     }
 
+    public MessageType getType() {
+        return this.type;
+    }
+
+    public Object getBody() {
+        return this.body;
+    }
 }

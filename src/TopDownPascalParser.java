@@ -23,6 +23,16 @@ public class TopDownPascalParser extends Parser {
     }
 
     @Override
+    public ICode getICode() {
+        return null;
+    }
+
+    @Override
+    public SymbolTable getSymbolTable() {
+        return null;
+    }
+
+    @Override
     public void addMessageListener(MessageListener listener) {
     }
 

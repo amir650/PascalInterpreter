@@ -9,10 +9,18 @@ public class Pascal {
     private SymbolTable symbolTable;
     private Backend backend;
 
+    public static final String FLAGS = "[-ix]";
+    public static final String USAGE = "...";
+    public static final String SOURCE_LINE_FORMAT = "%03d %s";
+    public static final String PARSER_SUMMARY_FORMAT = "\n%,20d source lines" +
+                                                       "\n%,20d syntax errors." +
+                                                       "\n%,20.2f seconds total parsing time.\n";
+    public static final String INTERPRETER_SUMMARY_FORMAT = "";
+    public static final String COMPILER_SUMMARY_FORMAT = "";
+
     public Pascal(String operation,
                   String filePath,
                   String flags) {
-
         try {
             boolean intermediate = flags.indexOf('i') > -1;
             boolean xref = flags.indexOf('x') > -1;
@@ -30,6 +38,35 @@ public class Pascal {
         } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            String operation = args[0];
+            if(!(operation.equalsIgnoreCase("compile") ||
+                 operation.equalsIgnoreCase("execute"))) {
+                throw new Exception();
+            }
+            int i = 0;
+            String flags = "";
+
+            while((++i < args.length) && (args[i].charAt(0) == '-')) {
+                flags += args[i].substring(i);
+            }
+
+            if(i < args.length) {
+                String path = args[i];
+                new Pascal(operation, path, flags);
+            } else {
+                throw new Exception();
+            }
+
+        } catch(Exception e) {
+            System.out.println(USAGE);
+        }
+
+
     }
 
 }
