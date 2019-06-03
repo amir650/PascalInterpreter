@@ -1,4 +1,4 @@
-public abstract class Parser {
+public abstract class Parser implements MessageProducer {
 
     protected static SymbolTable symbolTable = null;
 

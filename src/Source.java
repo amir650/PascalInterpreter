@@ -36,4 +36,11 @@ public class Source {
     public void close() throws Exception {
     }
 
+    public int getLineNumber() {
+        return 0;
+    }
+
+    public int getPosition() {
+        return 0;
+    }
 }
