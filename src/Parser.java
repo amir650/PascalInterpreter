@@ -15,12 +15,14 @@ public abstract class Parser implements MessageProducer {
     public abstract int getErrorCount();
 
     public Token currentToken() {
-        return null;
-        //return this.scanner.currentToken();
+        return this.scanner.currentToken();
     }
 
     public Token nextToken() throws Exception {
-        return null;
-        //return this.scanner.nextToken();
+        return this.scanner.nextToken();
     }
+
+    public abstract ICode getICode();
+
+    public abstract SymbolTable getSymbolTable();
 }

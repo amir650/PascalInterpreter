@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class Source {
+public class Source implements MessageProducer {
 
     public static final char EOL = '\n';
     public static final char EOF = (char)0;
@@ -42,5 +42,20 @@ public class Source {
 
     public int getPosition() {
         return 0;
+    }
+
+    @Override
+    public void addMessageListener(MessageListener listener) {
+
+    }
+
+    @Override
+    public void removeMessageListener(MessageListener listener) {
+
+    }
+
+    @Override
+    public void sendMessage(Message message) {
+
     }
 }
