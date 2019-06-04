@@ -1,10 +1,45 @@
-public abstract class Backend implements MessageProducer {
+public abstract class Backend implements MessageProducer
+{
+    protected static MessageHandler messageHandler;
 
-    protected static MessageHandler messageHandler = new MessageHandler();
+    static {
+        messageHandler = new MessageHandler();
+    }
 
-    protected SymbolTable symbolTable;
+    protected SymbolTable symTab;
     protected ICode iCode;
 
-    public abstract void process(ICode iCode, SymbolTable symbolTable) throws Exception;
+    public ICode getICode()
+    {
+        return iCode;
+    }
 
+    public SymbolTable getSymTab()
+    {
+        return symTab;
+    }
+
+    public MessageHandler getMessageHandler()
+    {
+        return messageHandler;
+    }
+
+    public abstract void process(ICode iCode, SymbolTable symTab)
+            throws Exception;
+
+    public void sendMessage(Message message)
+    {
+        messageHandler.sendMessage(message);
+    }
+
+
+    public void addMessageListener(MessageListener listener)
+    {
+        messageHandler.addListener(listener);
+    }
+
+    public void removeMessageListener(MessageListener listener)
+    {
+        messageHandler.removeListener(listener);
+    }
 }

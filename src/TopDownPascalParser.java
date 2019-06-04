@@ -32,15 +32,4 @@ public class TopDownPascalParser extends Parser {
         return null;
     }
 
-    @Override
-    public void addMessageListener(MessageListener listener) {
-    }
-
-    @Override
-    public void removeMessageListener(MessageListener listener) {
-    }
-
-    @Override
-    public void sendMessage(Message message) {
-    }
 }

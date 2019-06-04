@@ -15,9 +15,14 @@ public class Pascal {
     public static final String PARSER_SUMMARY_FORMAT = "\n%,20d source lines" +
                                                        "\n%,20d syntax errors." +
                                                        "\n%,20.2f seconds total parsing time.\n";
-    public static final String INTERPRETER_SUMMARY_FORMAT = "";
-    public static final String COMPILER_SUMMARY_FORMAT = "";
+    public static final String INTERPRETER_SUMMARY_FORMAT =
+            "\n%,20d statements executed." +
+                    "\n%,20d runtime errors." +
+                    "\n%,20.2f seconds total execution time.\n";
 
+    public static final String COMPILER_SUMMARY_FORMAT =
+            "\n%,20d instructions generated." +
+                    "\n%,20.2f seconds total code generation time.\n";
     public Pascal(String operation,
                   String filePath,
                   String flags) {

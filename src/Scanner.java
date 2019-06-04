@@ -12,7 +12,8 @@ public abstract class Scanner {
     }
 
     public Token nextToken() throws Exception {
-        return null;
+        this.currentToken = extractToken();
+        return this.currentToken;
     }
 
     protected abstract Token extractToken() throws Exception;

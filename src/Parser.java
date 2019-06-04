@@ -4,6 +4,7 @@ public abstract class Parser implements MessageProducer {
 
     protected Scanner scanner;
     protected ICode iCode;
+    protected static MessageHandler messageHandler = new MessageHandler();
 
     protected Parser(Scanner scanner) {
         this.scanner = scanner;
@@ -25,4 +26,27 @@ public abstract class Parser implements MessageProducer {
     public abstract ICode getICode();
 
     public abstract SymbolTable getSymbolTable();
+
+    public void addMessageListener(MessageListener listener)
+    {
+        messageHandler.addListener(listener);
+    }
+
+    /**
+     * Remove a parser message listener.
+     * @param listener the message listener to remove.
+     */
+    public void removeMessageListener(MessageListener listener)
+    {
+        messageHandler.removeListener(listener);
+    }
+
+    /**
+     * Notify listeners after setting the message.
+     * @param message the message to set.
+     */
+    public void sendMessage(Message message)
+    {
+        messageHandler.sendMessage(message);
+    }
 }

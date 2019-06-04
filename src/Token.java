@@ -10,11 +10,14 @@ public class Token {
     public Token(Source source) throws Exception {
         this.source = source;
         this.lineNumber = source.getLineNumber();
-        this.position = source.getPosition();
+        this.position = source.getCurrentPosition();
         extract();
     }
 
     protected void extract() throws Exception {
+        this.text = Character.toString(currentChar());
+        this.value = null;
+        nextChar();
     }
 
     protected char currentChar() throws Exception {
